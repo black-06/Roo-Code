@@ -30,6 +30,7 @@ import {
 	vscodeLlmModels,
 	vscodeLlmDefaultModelId,
 	openRouterDefaultModelId,
+	sudoRouterDefaultModelId,
 	requestyDefaultModelId,
 	glamaDefaultModelId,
 	unboundDefaultModelId,
@@ -141,6 +142,11 @@ function getSelectedModel({
 					: openRouterModelProviders[specificProvider]
 			}
 
+			return { id, info }
+		}
+		case "sudorouter": {
+			const id = apiConfiguration.sudoRouterModelId ?? sudoRouterDefaultModelId
+			const info = routerModels.sudorouter[id]
 			return { id, info }
 		}
 		case "requesty": {

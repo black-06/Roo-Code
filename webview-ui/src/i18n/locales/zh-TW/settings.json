@@ -243,6 +243,8 @@
 		"awsCustomArnDesc": "確保 ARN 中的區域與您上面選擇的 AWS 區域相符。",
 		"openRouterApiKey": "OpenRouter API 金鑰",
 		"getOpenRouterApiKey": "取得 OpenRouter API 金鑰",
+		"sudoRouterApiKey": "SudoRouter API 金鑰",
+		"getSudoRouterApiKey": "取得 SudoRouter API 金鑰",
 		"vercelAiGatewayApiKey": "Vercel AI Gateway API 金鑰",
 		"getVercelAiGatewayApiKey": "取得 Vercel AI Gateway API 金鑰",
 		"apiKeyStorageNotice": "API 金鑰安全儲存於 VSCode 金鑰儲存中",

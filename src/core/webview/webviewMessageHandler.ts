@@ -758,6 +758,7 @@ export const webviewMessageHandler = async (
 
 			const routerModels: Record<RouterName, ModelRecord> = {
 				openrouter: {},
+				sudorouter: {},
 				"vercel-ai-gateway": {},
 				huggingface: {},
 				litellm: {},
@@ -785,6 +786,7 @@ export const webviewMessageHandler = async (
 
 			const modelFetchPromises: { key: RouterName; options: GetModelsOptions }[] = [
 				{ key: "openrouter", options: { provider: "openrouter" } },
+				{ key: "sudorouter", options: { provider: "sudorouter" } },
 				{
 					key: "requesty",
 					options: {

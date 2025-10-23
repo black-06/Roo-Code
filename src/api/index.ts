@@ -10,6 +10,7 @@ import {
 	AwsBedrockHandler,
 	CerebrasHandler,
 	OpenRouterHandler,
+	SudoRouterHandler,
 	VertexHandler,
 	AnthropicVertexHandler,
 	OpenAiHandler,
@@ -99,6 +100,8 @@ export function buildApiHandler(configuration: ProviderSettings): ApiHandler {
 			return new GlamaHandler(options)
 		case "openrouter":
 			return new OpenRouterHandler(options)
+		case "sudorouter":
+			return new SudoRouterHandler(options)
 		case "bedrock":
 			return new AwsBedrockHandler(options)
 		case "vertex":

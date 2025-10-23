@@ -247,6 +247,8 @@
 		"awsCustomArnDesc": "Pastikan region di ARN cocok dengan AWS Region yang kamu pilih di atas.",
 		"openRouterApiKey": "OpenRouter API Key",
 		"getOpenRouterApiKey": "Dapatkan OpenRouter API Key",
+		"sudoRouterApiKey": "SudoRouter API Key",
+		"getSudoRouterApiKey": "Dapatkan SudoRouter API Key",
 		"vercelAiGatewayApiKey": "Vercel AI Gateway API Key",
 		"getVercelAiGatewayApiKey": "Dapatkan Vercel AI Gateway API Key",
 		"apiKeyStorageNotice": "API key disimpan dengan aman di Secret Storage VSCode",

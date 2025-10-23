@@ -41,6 +41,7 @@ export const DEFAULT_CONSECUTIVE_MISTAKE_LIMIT = 3
 
 export const dynamicProviders = [
 	"openrouter",
+	"sudorouter",
 	"vercel-ai-gateway",
 	"huggingface",
 	"litellm",
@@ -211,6 +212,12 @@ const openRouterSchema = baseProviderSettingsSchema.extend({
 	openRouterBaseUrl: z.string().optional(),
 	openRouterSpecificProvider: z.string().optional(),
 	openRouterUseMiddleOutTransform: z.boolean().optional(),
+})
+
+const sudoRouterSchema = baseProviderSettingsSchema.extend({
+	sudoRouterBaseUrl: z.string().optional(),
+	sudoRouterApiKey: z.string().optional(),
+	sudoRouterModelId: z.string().optional(),
 })
 
 const bedrockSchema = apiModelIdProviderModelSchema.extend({
@@ -421,6 +428,7 @@ export const providerSettingsSchemaDiscriminated = z.discriminatedUnion("apiProv
 	claudeCodeSchema.merge(z.object({ apiProvider: z.literal("claude-code") })),
 	glamaSchema.merge(z.object({ apiProvider: z.literal("glama") })),
 	openRouterSchema.merge(z.object({ apiProvider: z.literal("openrouter") })),
+	sudoRouterSchema.merge(z.object({ apiProvider: z.literal("sudorouter") })),
 	bedrockSchema.merge(z.object({ apiProvider: z.literal("bedrock") })),
 	vertexSchema.merge(z.object({ apiProvider: z.literal("vertex") })),
 	openAiSchema.merge(z.object({ apiProvider: z.literal("openai") })),
@@ -462,6 +470,7 @@ export const providerSettingsSchema = z.object({
 	...claudeCodeSchema.shape,
 	...glamaSchema.shape,
 	...openRouterSchema.shape,
+	...sudoRouterSchema.shape,
 	...bedrockSchema.shape,
 	...vertexSchema.shape,
 	...openAiSchema.shape,
@@ -517,6 +526,7 @@ export const modelIdKeys = [
 	"apiModelId",
 	"glamaModelId",
 	"openRouterModelId",
+	"sudoRouterModelId",
 	"openAiModelId",
 	"ollamaModelId",
 	"lmStudioModelId",
@@ -551,6 +561,7 @@ export const modelIdKeysByProvider: Record<TypicalProvider, ModelIdKey> = {
 	"claude-code": "apiModelId",
 	glama: "glamaModelId",
 	openrouter: "openRouterModelId",
+	sudorouter: "sudoRouterModelId",
 	bedrock: "apiModelId",
 	vertex: "apiModelId",
 	"openai-native": "openAiModelId",
@@ -701,6 +712,7 @@ export const MODELS_BY_PROVIDER: Record<
 	huggingface: { id: "huggingface", label: "Hugging Face", models: [] },
 	litellm: { id: "litellm", label: "LiteLLM", models: [] },
 	openrouter: { id: "openrouter", label: "OpenRouter", models: [] },
+	sudorouter: { id: "sudorouter", label: "Sudorouter", models: [] },
 	requesty: { id: "requesty", label: "Requesty", models: [] },
 	unbound: { id: "unbound", label: "Unbound", models: [] },
 	deepinfra: { id: "deepinfra", label: "DeepInfra", models: [] },

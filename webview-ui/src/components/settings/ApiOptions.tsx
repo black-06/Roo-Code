@@ -9,6 +9,7 @@ import {
 	type ProviderSettings,
 	DEFAULT_CONSECUTIVE_MISTAKE_LIMIT,
 	openRouterDefaultModelId,
+	sudoRouterDefaultModelId,
 	requestyDefaultModelId,
 	glamaDefaultModelId,
 	unboundDefaultModelId,
@@ -83,6 +84,7 @@ import {
 	OpenAI,
 	OpenAICompatible,
 	OpenRouter,
+	SudoRouter,
 	QwenCode,
 	Requesty,
 	SambaNova,
@@ -322,6 +324,7 @@ const ApiOptions = ({
 			> = {
 				deepinfra: { field: "deepInfraModelId", default: deepInfraDefaultModelId },
 				openrouter: { field: "openRouterModelId", default: openRouterDefaultModelId },
+				sudorouter: { field: "sudoRouterModelId", default: sudoRouterDefaultModelId },
 				glama: { field: "glamaModelId", default: glamaDefaultModelId },
 				unbound: { field: "unboundModelId", default: unboundDefaultModelId },
 				requesty: { field: "requestyModelId", default: requestyDefaultModelId },
@@ -459,6 +462,19 @@ const ApiOptions = ({
 
 			{selectedProvider === "openrouter" && (
 				<OpenRouter
+					apiConfiguration={apiConfiguration}
+					setApiConfigurationField={setApiConfigurationField}
+					routerModels={routerModels}
+					selectedModelId={selectedModelId}
+					uriScheme={uriScheme}
+					fromWelcomeView={fromWelcomeView}
+					organizationAllowList={organizationAllowList}
+					modelValidationError={modelValidationError}
+				/>
+			)}
+
+			{selectedProvider === "sudorouter" && (
+				<SudoRouter
 					apiConfiguration={apiConfiguration}
 					setApiConfigurationField={setApiConfigurationField}
 					routerModels={routerModels}

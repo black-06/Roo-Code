@@ -173,6 +173,7 @@ export const SECRET_STATE_KEYS = [
 	"apiKey",
 	"glamaApiKey",
 	"openRouterApiKey",
+	"sudoRouterApiKey",
 	"awsAccessKey",
 	"awsApiKey",
 	"awsSecretKey",

@@ -13,6 +13,7 @@ import type { RouterName, ModelRecord } from "../../../shared/api"
 import { fileExistsAtPath } from "../../../utils/fs"
 
 import { getOpenRouterModels } from "./openrouter"
+import { getSudoRouterModels } from "./sudorouter"
 import { getVercelAiGatewayModels } from "./vercel-ai-gateway"
 import { getRequestyModels } from "./requesty"
 import { getGlamaModels } from "./glama"
@@ -65,6 +66,9 @@ export const getModels = async (options: GetModelsOptions): Promise<ModelRecord>
 		switch (provider) {
 			case "openrouter":
 				models = await getOpenRouterModels()
+				break
+			case "sudorouter":
+				models = await getSudoRouterModels()
 				break
 			case "requesty":
 				// Requesty models endpoint requires an API key for per-user custom policies.
