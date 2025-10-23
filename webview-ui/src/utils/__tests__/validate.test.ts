@@ -24,6 +24,16 @@ describe("Model Validation Functions", () => {
 				outputPrice: 5.0,
 			},
 		},
+		sudorouter: {
+			"valid-model": {
+				maxTokens: 8192,
+				contextWindow: 200000,
+				supportsImages: true,
+				supportsPromptCache: false,
+				inputPrice: 3.0,
+				outputPrice: 15.0,
+			},
+		},
 		glama: {
 			"valid-model": {
 				maxTokens: 8192,
